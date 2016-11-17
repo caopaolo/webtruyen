@@ -1,0 +1,70 @@
+<?php 
+    echo $this->partial('/partial/notification.phtml', array(
+        'error'     => !empty($this->error) ? $this->error : '',
+        'warning'   => !empty($this->warning) ? $this->warning : '',
+        'success'   => !empty($this->success) ? $this->success : ''
+    )); 
+?>
+<?php if (!empty($this->data)) { ?>
+<div class="row">
+    <div class="col-lg-12">
+        <section class="panel">
+            <header class="panel-heading">
+                Nhập thông tin truyện
+            </header>
+            <div class="panel-body">
+                <form class="form-horizontal form-validate form_content" method="post" enctype="multipart/form-data">
+                    <input type="hidden" name="id" id="id" value="<?php echo !empty($this->id) ? $this->id : 0; ?>" />
+                     <?php 
+                        echo $this->partial('/story/partial/name.phtml', array('data' => $this->data, 'required' => 1)); 
+                    ?>
+                    <?php 
+                        echo $this->partial('/story/partial/author.phtml', array('data' => $this->data,'listAuthor' =>$this->listAuthor, 'required' => 1)); 
+                    ?>
+                    <?php 
+                        echo $this->partial('/story/partial/category.phtml', array('data' => $this->data,'listAuthor' =>$this->listAuthor, 'required' => 1)); 
+                    ?>
+                    <?php 
+                        echo $this->partial('/story/partial/introduction.phtml', array('data' => $this->data, 'required' => 1)); 
+                    ?>                 
+                      
+                    <?php 
+                        echo $this->partial('/story/partial/description.phtml', array('data' => $this->data, 'required' => 1)); 
+                    ?>  
+                    <?php 
+                        echo $this->partial('/story/partial/keywords.phtml', array('data' => $this->data, 'required' => 1)); 
+                    ?> 
+                    <?php 
+                        echo $this->partial('/story/partial/avatar.phtml', array('data' => $this->data, 'required' => 1)); 
+                    ?>
+                    <?php 
+                        echo $this->partial('/story/partial/avatardescription.phtml', array('data' => $this->data, 'required' => 1)); 
+                    ?>
+                    <?php 
+                        echo $this->partial('/story/partial/source.phtml', array('data' => $this->data)); 
+                    ?>
+                    <?php 
+                        echo $this->partial('/story/partial/total-chapter.phtml', array('data' => $this->data)); 
+                    ?>
+                    <?php 
+                        echo $this->partial('/story/partial/status.phtml', array('data' => $this->data)); 
+                    ?>
+                    <?php 
+                        echo $this->partial('/story/partial/is_full.phtml', array('data' => $this->data)); 
+                    ?>
+                               
+                    <?php 
+                        echo $this->partial('/story/partial/submitbtn.phtml'); 
+                    ?>
+                </form>
+            </div>
+        </section>
+    </div>
+</div>
+<?php 
+    echo $this->partial('/story/partial/style.phtml'); 
+?>
+<?php 
+    echo $this->partial('/story/partial/script.phtml'); 
+?>
+<?php } ?>

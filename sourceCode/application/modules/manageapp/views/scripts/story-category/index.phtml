@@ -1,0 +1,99 @@
+<?php if (!empty($this->error)) { ?>
+    <div class="alert alert-block alert-danger fade in"><?php echo $this->error; ?></div>
+<?php } else { ?>
+    <?php if (!empty($this->warning)) { ?>
+        <div class="alert alert-warning fade in"><?php echo $this->warning; ?></div>
+    <?php } ?>
+    <div class="row">
+        <div class="col-lg-12">
+            <section class="panel">
+                <header class="panel-heading">
+                    Danh sách truyện
+                </header>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Lọc theo trạng thái: </label>
+                    <div id="dt_select-wapper" class="col-sm-10"></div>
+                </div>
+                <div class="table-responsive">
+                    <table id="example" class="table">
+                    </table>
+                </div>
+            </section>
+        </div>
+    </div>
+    <script>
+       var author_id = '<?php echo $this->author_id ;?>';
+            var order = [[4, "desc"]];
+                var status_column = 7;                   
+                var select_html = "<select id='dt_select'>\
+                                    <option value=''></option>\
+                                    <option value='<?php echo STATUS_ON; ?>'>ON</option>\
+                                    <option value='<?php echo STATUS_OFF; ?>'>OFF</option>\
+                                    </select>";
+                var columns = [
+                    { "title": "STT", "width": "5%", "searchable": false, "orderable": false},
+                    { "title": "Story", "width": "10%"},
+                    { "title": "Author", "width": "10%", "searchable": false, "orderable": false},
+                    { "title": "Category", "width": "10%", "searchable": false, "orderable": false},
+                    { "title": "PublishedTime", "width": "10%",  "searchable": false},
+                    { "title": "Avatar", "width": "10%", "searchable": false, "orderable": false},
+                    { "title": "Chapter", "width": "10%", "searchable": false, "orderable": false}, 
+                    { "title": "Status", "width": "10%", "searchable": false, "orderable": false},                  
+                    { "title": "Operation", "width": "15%", "searchable": false, "orderable": false}
+                    
+                ];
+            var url = "/manageapp/story/get-story-ajax";
+            var data = {author_id: author_id};
+       
+        <?php } ?>
+       
+        $(document).ready(function () {
+            $('#dt_select-wapper').html(select_html);
+            var oTable = $('#example').DataTable({
+                "order": order,
+                "destroy": true,
+                "processing": true,
+                "serverSide": true,
+                "columns": columns,
+                "ajax": {
+                    url: url,
+                    data : data,
+                    error: handleAjaxError
+                }
+            });
+            
+            $('#dt_select').change( function () {
+                oTable.columns(status_column)
+                    .search($(this).val())
+                    .draw();
+            } );
+        });
+    </script>
+    <style type="text/css">
+    .avatar_small {
+        max-width: 140px;
+        height: auto; 
+    }
+    .post_field {
+        resize: none;
+        display: block;
+        margin: 5px 0px;
+    }
+    .form_swal{
+        width:850px !important;
+        left: 35% !important;
+    }
+    .form_swal .sa-input-error {
+        top: 12px !important;
+    }
+    .link_audio { 
+        margin-left: 5px;
+    }
+    .form-group {
+        margin-top: 10px;
+    }
+    .status-group {
+        margin-bottom: 5px;
+        white-space: nowrap;
+    }
+    </style>

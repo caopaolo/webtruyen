@@ -1,0 +1,156 @@
+
+
+<div class="form-group">
+        <label class="col-sm-2 control-label">Tổng hợp truyện</label>
+        <div class="btn-group">
+    
+            <a class="btn btn-success"_id ="1" onclick="stop_ajax()">STOP</a>
+            <a class="btn btn-danger" _id ="1" onclick="start_ajax_story(this)"><i></i>START</a>
+        </div>
+</div>
+<div class="form-group">
+        <label class="col-sm-2 control-label">Tổng hợp trang</label>
+        <div class="btn-group">
+    
+            <a class="btn btn-success"_id ="1" onclick="stop_ajax()">STOP</a>
+            <a class="btn btn-danger" _id ="1" onclick="start_ajax_page(this)"><i></i>START</a>
+        </div>
+</div>
+<div class="form-group">
+        <label class="col-sm-2 control-label">Tổng hợp chương</label>
+        <div class="btn-group">
+    
+            <a class="btn btn-success"_id ="1" onclick="stop_ajax()">STOP</a>
+            <a class="btn btn-danger" _id ="1" onclick="start_ajax_chapter(this)"><i></i>START</a>
+        </div>
+</div>
+<script type="text/javascript">
+var stop = 0;
+var index_story = 0;
+var index_page = 0;
+var index_chapter = 0;
+var currentAjax;
+var siteId;
+function start_ajax_story(ob) {
+    siteId = $(ob).attr('_id');
+    stop = 0;
+    run_ajax_story();
+}
+function start_ajax_page(ob) {
+    siteId = $(ob).attr('_id');
+    stop = 0;
+    run_ajax_page();
+}
+function start_ajax_chapter(ob) {
+    siteId = $(ob).attr('_id');
+    stop = 0;
+    run_ajax_chapter();
+}
+
+function run_ajax_story () {
+    if (stop  == 0) {
+        currentAjax = $.ajax({
+            'url': '/manageapp/crawler/get-story-ajax',
+            'type': 'POST',
+            'dataType': 'json',
+            'data': {site_id: siteId},
+            'success': function(result) {
+                if(result.status == 1){
+                    console.log(result.data.current + '/' + result.data.total);
+                    index_story++;
+                }
+                else{
+                    console.log(result.message);
+                }
+            },
+            'error' : function (error) {
+                console.log(error);
+            },
+            'complete': function () {
+                console.log(' truyen '+index_story);
+                run_ajax_story();
+            }
+        });    
+    } else {
+        console.log('dung story');
+        //alert('Da dung');
+    }
+}
+function stop_ajax () {
+    stop = 1;
+    currentAjax.abort();
+}
+//function crawlerChapter(){
+//    $.ajax({
+//                method: "POST",
+//                url: '/manageapp/crawler/get-chapter-content-ajax',
+//                'dataType': 'json',
+//                data: { site_id: siteId }, 
+//            }).done(function (response) {
+//                if (response.status == 1) {
+//                    console.log(response.message);
+//                } else {
+//                    console.log(response.message);
+//                }
+//    });
+//}
+function run_ajax_page(ob){
+    if (stop  == 0) {
+        currentAjax =  $.ajax({
+                method: "POST",
+                url: '/manageapp/crawler/get-chapter-ajax', 
+                'dataType': 'json',
+                data: { site_id: siteId}, 
+                'success': function(result) {
+                    if(result.status == 1){
+                        index_page++;
+                        console.log(result.message);
+                        }
+                        else{
+                            console.log(result.message);
+                        }
+                },
+                'error' : function (error) {
+                    console.log(error);
+                },
+                'complete': function () {
+                    console.log(' page ' + index_page);
+                    run_ajax_page();
+                }
+            });
+    }
+    else{
+        console.log('dung page');
+    }
+            
+}
+function run_ajax_chapter(){
+    if (stop  == 0) {
+        currentAjax = $.ajax({
+            'url': '/manageapp/crawler/get-chapter-content-ajax',
+            'type': 'POST',
+            'dataType': 'json',
+            'data': {site_id: siteId},
+            'success': function(result) {
+                if(result.status == 1){
+                    index_chapter++;
+                    console.log(result.message);
+                }
+                else{
+                    console.log(result.message);
+                }
+            },
+            'error' : function (error) {
+                console.log(error);
+            },
+            'complete': function () {
+                console.log(' chapter ' + index_chapter);
+                run_ajax_chapter();
+            }
+        });    
+    } else {
+        console.log('dung chapter');
+        //alert('Da dung');
+    }
+}
+</script>

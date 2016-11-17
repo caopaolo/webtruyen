@@ -1,0 +1,11 @@
+<div class="form-group">
+    <label class="col-sm-2 control-label">Hoàn thành</label>
+    <div class="col-sm-10">
+        <select name="is_full" id="is_full" class="form-control">
+            <option <?php if (!empty($this->data) && $this->data['is_full'] == 1) { ?>selected=""<?php } ?> 
+            value="<?php echo 1; ?>">Rồi</option>
+            <option <?php if (!empty($this->data) && $this->data['is_full'] == 0) { ?>selected=""<?php } ?> 
+            value="<?php echo 0; ?>">Chưa</option>
+        </select> 
+    </div>
+</div>

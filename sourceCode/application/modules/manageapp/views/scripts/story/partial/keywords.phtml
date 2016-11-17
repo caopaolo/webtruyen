@@ -1,0 +1,9 @@
+ <div class="form-group">
+        <label class="col-sm-2 control-label">
+            Key words (độ dài không quá 500 ký tự)
+        </label>
+        <div class="col-sm-10">
+            <input type="text" name="key_words" id="key_words" class="form-control" maxlength="500"
+            value="<?php echo !empty($this->data['key_words']) ? $this->data['key_words'] : null; ?>" />
+        </div>
+</div>

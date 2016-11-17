@@ -1,0 +1,14 @@
+<div class="form-group">
+    <label class="col-sm-2 control-label">Status</label>
+    <div class="col-sm-10">
+        <select name="status" id="status" class="form-control">
+            <option <?php if (!empty($this->data) && $this->data['status'] == STATUS_ON) { ?>selected=""<?php } ?> 
+            value="<?php echo STATUS_ON; ?>">ON</option>
+            <option <?php if (!empty($this->data) && $this->data['status'] == STATUS_OFF) { ?>selected=""<?php } ?> 
+            value="<?php echo STATUS_OFF; ?>">OFF</option>
+            <?php if (!empty($this->data) && $this->data['status'] == STATUS_VIDEO_ERROR) { ?>
+            <option selected="" value="<?php echo STATUS_VIDEO_ERROR; ?>">Video error</option>
+            <?php } ?>
+        </select> 
+    </div>
+</div>

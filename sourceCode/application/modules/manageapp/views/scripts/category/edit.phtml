@@ -1,0 +1,26 @@
+<?php 
+    echo $this->partial('/partial/notification.phtml', array(
+        'error'     => !empty($this->error) ? $this->error : '',
+        'warning'   => !empty($this->warning) ? $this->warning : '',
+        'success'   => !empty($this->success) ? $this->success : ''
+    )); 
+?>
+
+
+<?php if (!empty($this->data)) { ?>
+<?php $data = $this->data; ?>
+<div class="row">
+    <div class="col-lg-12">
+        <section class="panel">
+            <header class="panel-heading">
+                Sửa category
+            </header>
+            <div class="panel-body">
+                <?php 
+                    echo $this->partial('/category/partial/form.phtml', array('data' => $data, 'listCategory' => $this->listCategory,'category_new' => $this->category_new)); 
+                ?>
+            </div>
+        </section>
+    </div>
+</div>
+<?php } ?>

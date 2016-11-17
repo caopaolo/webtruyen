@@ -1,0 +1,15 @@
+<div class="form-group">
+    <label class="col-sm-2 control-label">Tên truyện</label>
+    <div class="col-sm-10">
+        <select name="story_id" id="story_id" class="form-control">
+            <?php if (!empty($this->listStory)) { ?>
+                <?php foreach ($this->listStory as $item) { ?>
+                    <option <?php if (!empty($this->data) && $this->data['story_id'] == $item['id']) { ?>selected=""<?php } ?> 
+                    value="<?php echo $item['id']; ?>">
+                        <?php echo $item['story_name']; ?>
+                    </option>
+                <?php } ?>
+            <?php } ?>
+        </select> 
+    </div>
+</div>

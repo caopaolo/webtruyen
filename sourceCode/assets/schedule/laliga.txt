@@ -1,0 +1,49 @@
+15-10-2016 01h45 *8 /Las Palmas+Espanyol
+15-10-2016 18h00 *8 /Leganés+Sevilla
+15-10-2016 21h15 *8 /Barcelona+Deportivo La Coruña
+15-10-2016 23h30 *8 /Atlético Madrid+Granada
+16-10-2016 01h45 *8 /Real Betis+Real Madrid
+16-10-2016 17h00 *8 /Deportivo Alavés+Málaga
+16-10-2016 21h15 *8 /Athletic Club+Real Sociedad
+16-10-2016 23h30 *8 /Sporting Gijón+Valencia
+17-10-2016 01h45 *8 /Villarreal+Celta de Vigo
+18-10-2016 01h45*8 /Eibar+Osasuna
+22-10-2016 01h45*8 /Osasuna+Real Betis
+22-10-2016 18h00*8 /Espanyol+Eibar
+22-10-2016 21h15*8 /Valencia+Barcelona
+22-10-2016 23h30*8 /Real Sociedad+Deportivo Alavés
+29-10-2016 01h45*8 /Leganés+Real Sociedad
+29-10-2016 18h00*8 /Sporting Gijón+Sevilla
+29-10-2016 21h15*8 /Deportivo Alavés+Real Madrid
+29-10-2016 23h30*8 /Atlético Madrid+Málaga
+31-10-2016 01h45*8 /Las Palmas+Celta de Vigo
+01-11-2016 01h45*8 /Deportivo La Coruña+Valencia
+05-11-2016 01h45*8 /Málaga+Sporting Gijón
+05-11-2016 18h00*8 /Granada+Deportivo La Coruña
+05-11-2016 21h15*8 /Real Sociedad+Atlético Madrid
+05-11-2016 23h30*8 /Osasuna+Deportivo Alavés
+07-11-2016 01h45*8 /Sevilla+Barcelona
+23-10-2016 01h45*9 /Granada+Sporting Gijón
+23-10-2016 17h00*9 /Celta de Vigo+Deportivo La Coruña
+23-10-2016 21h15*9 /Sevilla+Atlético Madrid
+23-10-2016 23h30*9 /Villarreal+Las Palmas
+23-10-2016 23h30*9 /Málaga+Leganés
+30-10-2016 01h45*10/Barcelona+Granada
+30-10-2016 17h00*10/Eibar+Villarreal
+30-10-2016 21h15*10/Athletic Club+Osasuna
+30-10-2016 23h30*10/Real Betis+Espanyol
+06-11-2016 01h45*11/Las Palmas+Eibar
+06-11-2016 17h00*11/Real Madrid+Leganés
+06-11-2016 21h15*11/Espanyol+Athletic Club
+06-11-2016 21h15*11/Celta de Vigo+Valencia
+06-11-2016 23h30*11/Villarreal+Real Betis
+20-11-2016 22h00*12/Eibar+Celta de Vigo
+20-11-2016 22h00*12/Real Betis+Las Palmas
+20-11-2016 22h00*12/Athletic Club+Villarreal
+20-11-2016 22h00*12/Deportivo Alavés+Espanyol
+20-11-2016 22h00*12/Leganés+Osasuna
+20-11-2016 22h00*12/Atlético Madrid+Real Madrid
+20-11-2016 22h00*12/Sporting Gijón+Real Sociedad
+20-11-2016 22h00*12/Barcelona+Málaga
+20-11-2016 22h00*12/Deportivo La Coruña+Sevilla
+20-11-2016 22h00*12/Valencia+Granada

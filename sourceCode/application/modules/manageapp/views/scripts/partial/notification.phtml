@@ -1,0 +1,7 @@
+<?php if (!empty($this->error)) { ?>
+    <div class="alert alert-block alert-danger fade in"><?php echo $this->error; ?></div>
+<?php } else if (!empty($this->warning)) { ?>
+    <div class="alert alert-warning fade in"><?php echo $this->warning; ?></div>
+<?php } else if (!empty($this->success)) { ?>
+    <div class="alert alert-success fade in"><?php echo $this->success; ?></div>
+<?php } ?>

@@ -1,0 +1,67 @@
+<?php if (!empty($this->error)) { ?>
+    <div class="alert alert-block alert-danger fade in"><?php echo $this->error; ?></div>
+<?php } else if (!empty($this->warning)) { ?>
+    <div class="alert alert-warning fade in"><?php echo $this->warning; ?></div>
+<?php } else { ?>
+<div class="row">
+    <div class="col-lg-12">
+        <section class="panel">
+            <header class="panel-heading">
+                Danh sách category
+            </header>
+            <div class="table-responsive">
+                <table id="example" class="table">
+                    <thead>
+                        <tr>
+                            <th>STT</th>
+                            <th>CategoryNew</th>
+                            <th>CategoryCrawler</th>
+                            <th>Description</th>
+                            <th>Avatar</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                            foreach ($this->data as $key => $value) {
+                        ?>
+                        <tr id="row_<?php echo $value['id']; ?>">
+                            <td style="width: 10%;"><?php echo $key+1 ?></td>
+                            <td ><a href="/manageapp/story/index?category_new_id=<?php echo $value['id'] ?>"><?php echo $value['name'] ?></a></td>
+                            <td ><a href="/manageapp/story/index?category_id=<?php echo $value['category_crawler'] ?>"><?php echo $value['category_crawler_name'] ?></a></td>
+                            <td ><?php echo $value['description'] ?></td>
+                            <td >
+                                <a target="_blank" href="<?php if(isset( $value['avatar_small'])){ echo 'http://webtruyen.vn/'. $value['avatar_small'];} ?>">
+                                    <img class="avatar_small" src="<?php if(isset( $value['avatar_small'])){ echo 'http://webtruyen.vn/'. $value['avatar_small'];} ?>" />
+                                </a>
+                            </td>
+                            <td>
+                                <div class="btn-group">
+                                    <a class="btn btn-success" href="/manageapp/category/edit?category_id=<?php echo $value['id'] ?>">Chỉnh sửa</a>
+                                    <a class="btn btn-danger" onclick='deleteObject(<?php echo $value['id']; ?>, 2)' ><i></i>Xóa</a>
+                                </div>
+                            </td>
+                        </tr>
+                        <?php } ?>
+                    </tbody>
+                </table>
+                <button class="btn"><a href="/manageapp/category/add">Thêm category</a></button>
+            </div>
+
+        </section>
+    </div>
+</div>
+<style type="text/css">
+.avatar_small {
+    max-width: 140px;
+    height: auto; 
+}
+</style>
+<script>
+    $(document).ready(function () {
+        $('#example').DataTable({
+            "order": [[0, "asc"]]
+        });
+    });
+</script>
+<?php } ?>

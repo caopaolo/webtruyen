@@ -1,0 +1,15 @@
+<div class="form-group">
+    <label class="col-sm-2 control-label">Tác giả</label>
+    <div class="col-sm-10">
+        <select name="author" id="author" class="form-control">
+            <?php if (!empty($this->listAuthor)) {  ?>
+                <?php foreach ($this->listAuthor as $item) { ?>
+                    <option <?php if (!empty($this->data) && $this->data['author_id'] == $item['id']) { ?>selected=""<?php } ?> 
+                    value="<?php echo $item['id']; ?>">
+                        <?php echo $item['author_name']; ?>
+                    </option>
+                <?php } ?>
+            <?php } ?>
+        </select> 
+    </div>
+</div>

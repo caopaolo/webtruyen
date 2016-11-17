@@ -1,0 +1,89 @@
+<?php
+$username = $this->username;
+$arr = $this->arr;
+$role = $this->role;
+?>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content=" CMS">
+        <meta name="author" content="CPL">
+        <meta name="keyword" content="Creative, Dashboard, Admin, Template, Theme, Bootstrap, Responsive">
+        <link rel="shortcut icon" href="/assets/managerapp/img/icons/favicon.png">
+
+        <title> CMS</title>
+        <!-- Begin: CSS -->
+        <?php require ('components/css.phtml');?>
+        <!-- End: CSS -->
+        <!-- Begin: Javascript -->
+        <?php require ('components/javascript.phtml');?>
+        <!-- End: Javascript -->
+    </head>
+
+    <body>
+        <!-- container section start -->
+        <section id="container" class="">
+
+            <header class="header dark-bg">
+                <div class="toggle-nav">
+                    <div class="icon-reorder tooltips" data-original-title="Toggle Navigation" data-placement="bottom"><i class="icon_menu"></i></div>
+                </div>
+
+                <!--logo start-->
+                <a href="/manageapp/comment" class="logo"><?php echo $this->app['app_name']; ?> <span class="lite">CMS</span></a>
+                <!--logo end-->
+
+                <div class="nav search-row" id="top_menu">
+                    <!--  search form start -->
+                    <ul class="nav top-menu">                    
+                        <li>
+                            <form class="navbar-form">
+                                <input class="form-control" placeholder="Search" type="text">
+                            </form>
+                        </li>                    
+                    </ul>
+                    <!--  search form end -->                
+                </div>
+
+                <div class="top-nav notification-row">                
+                    <!-- notificatoin dropdown start-->
+                    <?php require ('components/notification.phtml');?>
+                    <!-- notificatoin dropdown end-->
+                </div>
+            </header>      
+            <!--header end-->
+
+            <!--sidebar start-->
+            <?php require ('components/sidebar.phtml');?>
+            
+            <!--sidebar end-->
+
+            <!--main content start-->
+            <section id="main-content">
+                <section class="wrapper"> 
+                    <?php echo $this->layout()->content; ?>
+                </section>
+            </section>
+            <!--main content end-->
+        </section>
+        <!-- container section start -->
+
+        <!-- loading div -->
+        <div id="loading" class="hidden"></div>
+        
+        <!-- javascripts -->
+        <script>
+            //custom select box
+            $(function () {
+                $('select.styled').customSelect();
+            });
+            
+            if ( typeof CKEDITOR != 'undefined' &&  typeof CKFinder != 'undefined' )
+            {
+                // CKFinder intergrate CKEditor
+                CKFinder.setupCKEditor( null, '/assets/ckfinder/' );
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,73 @@
+<aside>
+   
+    <div id="sidebar"  class="nav-collapse ">
+        <!-- sidebar menu start-->
+        <ul class="sidebar-menu">                
+            <li class="active">
+                <a class="" href="">
+                    <i class="icon_house_alt"></i>
+                    <span>Web Truyện</span>
+                </a>
+            </li>
+                <li class="sub-menu <?php if ($this->controller == 'category') { ?>active<?php } ?>">
+                    <a href="#" class="">
+                        <i class="icon_table"></i>
+                        <span>Category</span>
+                        <span class="menu-arrow arrow_carrot-right"></span>
+                    </a>
+                    <ul class="sub">
+                        <li class="<?php if ($this->action == 'index') { ?>active<?php } ?>"><a class="" href="/manageapp/category">List category</a></li>
+                        <li class="<?php if ($this->action == 'add') { ?>active<?php } ?>"><a class="" href="/manageapp/category/add">Add category</a></li>
+                    </ul>
+                </li>
+                 <li class="sub-menu <?php if ($this->controller == 'category-new') { ?>active<?php } ?>">
+                    <a href="#" class="">
+                        <i class="icon_table"></i>
+                        <span>CategoryNew</span>
+                        <span class="menu-arrow arrow_carrot-right"></span>
+                    </a>
+                    <ul class="sub">
+                        <li class="<?php if ($this->action == 'index') { ?>active<?php } ?>"><a class="" href="/manageapp/category-new">List category</a></li>
+                        <li class="<?php if ($this->action == 'add') { ?>active<?php } ?>"><a class="" href="/manageapp/category-new/add">Add category</a></li>
+                    </ul>
+                </li>
+           
+                <li class="sub-menu <?php if ($this->controller == 'author') { ?>active<?php } ?>">
+                    <a href="#" class="">
+                        <i class="icon_table"></i>
+                        <span>Author</span>
+                        <span class="menu-arrow arrow_carrot-right"></span>
+                    </a>
+                    <ul class="sub">
+                        <li class="<?php if ($this->action == 'index') { ?>active<?php } ?>"><a class="" href="/manageapp/author">List Author</a></li>
+                        <li class="<?php if ($this->action == 'add') { ?>active<?php } ?>"><a class="" href="/manageapp/author/add">Add Author</a></li>
+                    </ul>
+                </li>
+                <li class="sub-menu <?php if ($this->controller == 'story') { ?>active<?php } ?>">
+                    <a href="#" class="">
+                        <i class="icon_table"></i>
+                        <span>Story</span>
+                        <span class="menu-arrow arrow_carrot-right"></span>
+                    </a>
+                    <ul class="sub">
+                        <li class="<?php if ($this->action == 'index') { ?>active<?php } ?>"><a class="" href="/manageapp/story">List story</a></li>
+                        <li class="<?php if ($this->action == 'add') { ?>active<?php } ?>"><a class="" href="/manageapp/story/add">Add story</a></li>
+                        <li class="<?php if ($this->action == 'sort') { ?>active<?php } ?>"><a class="" href="/manageapp/story/sort">Sort story</a></li>
+                    </ul>
+                </li>
+                <li class="sub-menu <?php if ($this->controller == 'story-content') { ?>active<?php } ?>">
+                    <a href="#" class="">
+                        <i class="icon_table"></i>
+                        <span>StoryContent</span>
+                        <span class="menu-arrow arrow_carrot-right"></span>
+                    </a>
+                    <ul class="sub">
+                        <li class="<?php if ($this->action == 'index') { ?>active<?php } ?>"><a class="" href="/manageapp/story-content">List Content</a></li>
+                        <li class="<?php if ($this->action == 'add') { ?>active<?php } ?>"><a class="" href="/manageapp/story-content/add">Add Content</a></li>
+                    </ul>
+                </li>
+          
+        </ul>
+        <!-- sidebar menu end-->
+    </div>
+</aside>

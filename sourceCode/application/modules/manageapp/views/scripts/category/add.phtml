@@ -1,0 +1,22 @@
+<?php 
+    echo $this->partial('/partial/notification.phtml', array(
+        'error'     => !empty($this->error) ? $this->error : '',
+        'warning'   => !empty($this->warning) ? $this->warning : '',
+        'success'   => !empty($this->success) ? $this->success : ''
+    )); 
+?>
+<?php $data = (isset($this->data)) ? $this->data : array(); ?>
+<div class="row">
+    <div class="col-lg-12">
+        <section class="panel">
+            <header class="panel-heading">
+                Thêm category
+            </header>
+            <div class="panel-body">
+                <?php 
+                    echo $this->partial('/category/partial/form.phtml', array('data' => $data)); 
+                ?>
+            </div>
+        </section>
+    </div>
+</div>

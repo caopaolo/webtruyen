@@ -1,0 +1,69 @@
+<?php if (!empty($this->error)) { ?>
+    <div class="alert alert-block alert-danger fade in"><?php echo $this->error; ?></div>
+<?php } else if (!empty($this->warning)) { ?>
+    <div class="alert alert-warning fade in"><?php echo $this->warning; ?></div>
+<?php } else { ?>
+<div class="row">
+    <div class="col-lg-12">
+        <section class="panel">
+            <header class="panel-heading">
+                <span>Sắp xếp content theo mức độ nổi bật (Sắp xếp bằng cách kéo thả)</span>
+                <button type="button" id="saveButton" onclick="saveSort()">Lưu</button>
+                <button type="button" id="resetButton" onclick="resetSort()">Reset thứ tự</button>
+            </header>
+            <header class="panel-heading">
+                <label>Thêm nội dung</label>
+                <input type="text" id="extra_content" class="form-control" required="" value="" />
+                <input type="hidden" id="extra_content_data" _id="" _sort_focus="" _avatar_small="" _title="" value="" />
+                <button type="button" id="addButton" onclick="addContent('extra_content_data', 'sortable')">Thêm</button>
+            </header>
+            <div class="table-responsive">
+                <ul id="sortable">
+                    <?php if (!empty($this->listContent)) { ?>
+                    <?php foreach ($this->listContent as $item) { ?>
+                        <li class="sort-wrapper" id="item-<?php echo $item['id']; ?>">
+                            <span class="close" onclick="removeContent(this, 'sortable')"><i class="icon_close"></i></span>
+                            <div class="sort-focus"><?php echo $item['sort_focus']; ?></div>
+                            <div class="sort-avatar">
+                                <img src="<?php echo $item['avatar_small']; ?>" />
+                            </div>
+                            <div class="sort-title"><?php echo $item['title']; ?></div>
+                        </li>
+                    <?php } ?>
+                    <?php } ?>
+                </ul>
+            </div>
+        </section>
+    </div>
+</div>
+<style type="text/css">
+    #sortable { list-style-type: none; margin: 0; padding: 0; width: 100%; }
+    #sortable li.sort-wrapper { 
+        cursor: pointer; margin: 5px;  
+        float: left; 
+        width: 152px; 
+        height: 150px; 
+        font-size: 1em; 
+        border: 1px solid #688a7e;
+        text-align: center;
+        overflow: hidden;
+        position: relative;
+    }
+    #sortable li.sort-wrapper .sort-avatar img{
+        width: 150px;
+        height: auto;
+        max-height: 100px;
+    }
+    #saveButton {
+        margin-left: 10px;
+    }
+    .close{
+        position: absolute;
+        float: none;
+        right: 0px;
+    }
+    #addButton{
+        margin-top: 10px;
+    }
+</style>
+<?php } ?>

@@ -1,0 +1,8 @@
+<div class="form-group">
+    <label class="control-label col-sm-2">
+        Nội dung<?php if (!empty($this->required)) { ?><span class="required">*</span><?php } ?>
+    </label>
+    <div class="col-sm-10">
+        <textarea name="content" id="content" class="form-control ckeditor" <?php if (!empty($this->required)) { ?>required=""<?php } ?> rows="10"><?php echo !empty($this->data['content']) ? $this->data['content'] : null; ?></textarea>
+    </div>
+</div>

@@ -1,0 +1,27 @@
+<script type="text/javascript">
+
+var categories;
+$(document).ready(function () {
+    categories = new Bloodhound({
+        datumTokenizer: function(d) {
+            return Bloodhound.tokenizers.whitespace(d.label);
+        },
+        queryTokenizer: Bloodhound.tokenizers.whitespace,
+        prefetch: {
+            url: '/manageapp/story/category-json',
+            ttl: 1,
+            filter: function(list) {
+                return $.map(list, function(tag) {
+                    return {'label': tag.category, 'value': tag.category}; 
+                });
+            }
+        }
+        
+    });
+    categories.initialize();
+    
+    $('#category').tokenfield({
+        typeahead: [null, { source: categories.ttAdapter() }]
+    });
+});
+</script>
